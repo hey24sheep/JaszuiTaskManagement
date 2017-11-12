@@ -7,6 +7,7 @@ body{
 .thumbnail { height: 100px !important;
     background:#a9c1e8;
     border: 2px solid #a9c1e8;
+
 }
 .btn-droppable { width: 180px; height: 30px; padding-left: 4px; }
 .btn-draggable { width: 160px;
@@ -36,11 +37,7 @@ body{
     background:#a9c1e8
 
 }
-footer {
-  background-color: #555;
-  color: white;
-  padding: 15px;
-}
+
 .panel-body {
     background:#a9c1e8;}
 
