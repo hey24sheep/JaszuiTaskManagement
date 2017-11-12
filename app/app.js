@@ -1,78 +1,80 @@
 var App = angular.module('drag-and-drop', ['ngDragDrop']);
-// localStorage.clear();
 App.controller('oneCtrl', function($scope) {
 
+
+    //List for User1
     $scope.list1 = [];
+    //List for User2
     $scope.list2 = [];
+    //List for User3
     $scope.list3 = [];
 
+    //All items List
     $scope.list5 = [
-        { 'title': 'Item 1', 'drag': true },
-        { 'title': 'Item 2', 'drag': true },
-        { 'title': 'Item 3', 'drag': true },
-        { 'title': 'Item 4', 'drag': true },
-        { 'title': 'Item 5', 'drag': true },
-        { 'title': 'Item 6', 'drag': true },
-        { 'title': 'Item 7', 'drag': true },
-        { 'title': 'Item 8', 'drag': true },
-        { 'title': 'Item 9', 'drag': true },
-        { 'title': 'Item 10', 'drag': true },
-        { 'title': 'Item 11', 'drag': true },
-        { 'title': 'Item 12', 'drag': true },
-        { 'title': 'Item 13', 'drag': true },
-        { 'title': 'Item 14', 'drag': true },
-        { 'title': 'Item 15', 'drag': true }
+        { 'title': 'Task 1', 'drag': true },
+        { 'title': 'Task 2', 'drag': true },
+        { 'title': 'Task 3', 'drag': true },
+        { 'title': 'Task 4', 'drag': true },
+        { 'title': 'Task 5', 'drag': true },
+        { 'title': 'Task 6', 'drag': true },
+        { 'title': 'Task 7', 'drag': true },
+        { 'title': 'Task 8', 'drag': true },
+        { 'title': 'Task 9', 'drag': true },
+        { 'title': 'Task 10', 'drag': true },
+        { 'title': 'Task 11', 'drag': true },
+        { 'title': 'Task 12', 'drag': true },
+        { 'title': 'Task 13', 'drag': true },
+        { 'title': 'Task 14', 'drag': true },
+        { 'title': 'Task 15', 'drag': true }
     ];
 
+    //Assign lists to array
     var mainList = $scope.list5;
     var firstList = $scope.list1;
     var secondList = $scope.list2;
     var thirdList = $scope.list3;
 
-    console.log(mainList);
-
-    $scope.doSomething = function () {
+//function to save arrays into Local Storage
+    $scope.saveDataIntoLocalStorage = function () {
         localStorage.setItem('mainList', angular.toJson(mainList));
         localStorage.setItem('firstList', angular.toJson(firstList));
         localStorage.setItem('secondList', angular.toJson(secondList));
         localStorage.setItem('thirdList', angular.toJson(thirdList));
-        console.log(mainList);
-        console.log(firstList);
-        console.log(secondList);
-        console.log(thirdList);
-    }
 
+    }
+//Information for user
     $scope.additionalInfo = function () {
         alert("User can have only one task");
-        alert("You can keep data in local storage but after refresh\n $$hashKey " +
-            "automatically changed so even if array is in local storage of the browser so You cannot see item inside user box.");
     }
 
 
     if(localStorage.getItem('mainList')){
-        //this will assign the array stored in ls to the list1 var
         $scope.list5 = angular.fromJson(localStorage.getItem('mainList'));
-        console.log(mainList);
+        // console.log(mainList);
     }
     if(localStorage.getItem('firstList')){
-        //this will assign the array stored in ls to the list1 var
         $scope.list1 = angular.fromJson(localStorage.getItem('firstList'));
-        console.log(firstList);
+        // console.log(firstList);
     }
     if(localStorage.getItem('secondList')){
-        //this will assign the array stored in ls to the list1 var
         $scope.list2 = angular.fromJson(localStorage.getItem('secondList'));
-        console.log(secondList);
+        // console.log(secondList);
     }
     if(localStorage.getItem('thirdList')){
-        //this will assign the array stored in ls to the list1 var
         $scope.list3 = angular.fromJson(localStorage.getItem('thirdList'));
-        console.log(thirdList);
+        // console.log(thirdList);
     }
 
-
-
-    // Limit items to be dropped in list1
+    // Limit items to be dropped in list
+    $scope.optionsList1 = {
+        accept: function(dragEl) {
+            if ($scope.list1.length >= 1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    };
     $scope.optionsList2 = {
         accept: function(dragEl) {
             if ($scope.list2.length >= 1) {
@@ -81,17 +83,6 @@ App.controller('oneCtrl', function($scope) {
                 return true;
             }
         }
-    };
-    $scope.optionsList1 = {
-        accept: function(dragEl) {
-            if ($scope.list1.length >= 1) {
-                return false;
-            } else {
-
-                return true;
-            }
-        }
-
     };
     $scope.optionsList3 = {
         accept: function(dragEl) {
@@ -102,9 +93,10 @@ App.controller('oneCtrl', function($scope) {
             }
         }
     };
+    //Clear Local Storage
     $scope.clearStorage = function () {
         localStorage.clear();
-        alert("Hit F5 after clear storage button");
+        window.location.reload();
     }
 });
 
