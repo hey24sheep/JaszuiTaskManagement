@@ -35,7 +35,13 @@ App.controller('oneCtrl', function($scope) {
         localStorage.setItem('mainList', angular.toJson(mainList));
         localStorage.setItem('firstList', angular.toJson(firstList));
         localStorage.setItem('secondList', angular.toJson(secondList));
-        localStorage.setItem('thirdList', angular.toJson(thirdList));}
+        localStorage.setItem('thirdList', angular.toJson(thirdList));
+        console.log(mainList);
+        console.log(firstList);
+        console.log(secondList);
+        console.log(thirdList);
+    }
+
     $scope.additionalInfo = function () {
         alert("User can have only one task");
         alert("You can keep data in local storage but after refresh\n $$hashKey " +
@@ -44,25 +50,26 @@ App.controller('oneCtrl', function($scope) {
 
 
     if(localStorage.getItem('mainList')){
-        // $scope.list5.push(JSON.parse(localStorage.getItem('mainList')));
-        $scope.list1.push(localStorage.getItem('mainList'));
+        // $scope.list5.push(JSON.parse(localStorage.getItem('mainList'‌​)));
+        $scope.list5.push(angular.fromJson(localStorage.getItem('mai‌​nList')));
         console.log(mainList);
     }
     if(localStorage.getItem('firstList')){
-        // $scope.list1.push(JSON.parse(localStorage.getItem('firstList')));
-        $scope.list1.push(localStorage.getItem('firstList'));
+        // $scope.list5.push(JSON.parse(localStorage.getItem('mainList'‌​)));
+        $scope.list1.push(angular.fromJson(localStorage.getItem('firstList')));
         console.log(firstList);
     }
     if(localStorage.getItem('secondList')){
-        // $scope.list2.push(JSON.parse(localStorage.getItem('secondList')));
-        $scope.list2.push(localStorage.getItem('secondList'));
+        // $scope.list5.push(JSON.parse(localStorage.getItem('mainList'‌​)));
+        $scope.list2.push(angular.fromJson(localStorage.getItem('secondList')));
         console.log(secondList);
     }
     if(localStorage.getItem('thirdList')){
-        // $scope.list3.push(JSON.parse(localStorage.getItem('thirdList')));
-        $scope.list3.push(localStorage.getItem('thirdList'));
+        // $scope.list5.push(JSON.parse(localStorage.getItem('mainList'‌​)));
+        $scope.list3.push(angular.fromJson(localStorage.getItem('thirdList')));
         console.log(thirdList);
     }
+
 
     // Limit items to be dropped in list1
     $scope.optionsList2 = {
