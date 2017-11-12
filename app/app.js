@@ -29,7 +29,7 @@ App.controller('oneCtrl', function($scope) {
     var secondList = $scope.list2;
     var thirdList = $scope.list3;
 
-    // console.log(mainList);
+    console.log(mainList);
 
     $scope.doSomething = function () {
 
@@ -37,17 +37,36 @@ App.controller('oneCtrl', function($scope) {
         localStorage.setItem('firstList', JSON.stringify(firstList));
         localStorage.setItem('secondList', JSON.stringify(secondList));
         localStorage.setItem('thirdList', JSON.stringify(thirdList));
-
-        // console.log(mainList);
+        console.log(mainList);
+        console.log(firstList);
+        console.log(secondList);
+        console.log(thirdList);
 
     };
+    $scope.additionalInfo = function () {
+        alert("User can have only one task");
+        alert("You can keep data in local storage but after refresh\n $$hashKey " +
+            "automatically changed so even if array is in local storage of the browser so You cannot see item inside user box.");
+    }
 
 
     if(localStorage.getItem('mainList')){
-        // $scope.list1.push(JSON.parse(localStorage.getItem('mainList')));
-
-        // console.log(mainList);
+        $scope.list5.push(JSON.parse(localStorage.getItem('mainList')));
+        console.log(mainList);
     }
+    if(localStorage.getItem('firstList')){
+        $scope.list1.push(JSON.parse(localStorage.getItem('firstList')));
+        console.log(firstList);
+    }
+    if(localStorage.getItem('secondList')){
+        $scope.list2.push(JSON.parse(localStorage.getItem('secondList')));
+        console.log(secondList);
+    }
+    if(localStorage.getItem('thirdList')){
+        $scope.list3.push(JSON.parse(localStorage.getItem('thirdList')));
+        console.log(thirdList);
+    }
+
     // Limit items to be dropped in list1
     $scope.optionsList2 = {
         accept: function(dragEl) {
@@ -56,21 +75,20 @@ App.controller('oneCtrl', function($scope) {
             } else {
                 return true;
             }
-            console.log("i am here");
         }
-
     };
-
     $scope.optionsList1 = {
         accept: function(dragEl) {
             if ($scope.list1.length >= 1) {
                 return false;
             } else {
+
                 return true;
             }
-        }
-    };
 
+        }
+
+    };
     $scope.optionsList3 = {
         accept: function(dragEl) {
             if ($scope.list3.length >= 1) {
@@ -81,9 +99,10 @@ App.controller('oneCtrl', function($scope) {
         }
     };
 
-    // $scope.clearStorage = function () {
-    //     localStorage.clear();
-    // }
+    $scope.clearStorage = function () {
+        localStorage.clear();
+        alert("Hit F5 after clear storage button");
+    }
 });
 
 

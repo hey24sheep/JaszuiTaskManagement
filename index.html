@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Jaszui Task Organizer</title>
+    <title>Task Organizer</title>
     <link rel="shortcut icon" href="content/img/Favicon.ico"/>
 
     <!-- Links -->
@@ -24,21 +24,27 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a href="index.html" class="navbar-brand">JASZUI TASK ORGANIZER</a>
+                <a href="index.html" class="navbar-brand">TASK ORGANIZER</a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown"></button>
             </div>
             <div class="collapse navbar-collapse" id="mydropdown">
                 <ul class="nav navbar-nav ">
                     <li class="active"><a href="#">Task List</a></li>
                 </ul>
+
+                <button class="btn btn-primary nav-bar-btn navbar-right" style="margin-left: 10px;margin-top: 10px;"
+                        ng-click="clearStorage()">Clear Storage <span class="label label-danger">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </span></button>
                 <button class="btn btn-primary nav-bar-btn navbar-right" style="margin-left: 10px;margin-top: 10px;"
                         ng-click="doSomething()">Save Changes <span class="label label-danger">
                      <span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>
                 </span></button>
-                <!--<button class="btn btn-primary nav-bar-btn navbar-right" style="margin-left: 10px;margin-top: 10px;"-->
-                        <!--ng-click="clearStorage()">Clear Storage <span class="label label-danger">-->
-                    <!--<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>-->
-                <!--</span></button>-->
+
+                <button class="btn btn-primary nav-bar-btn navbar-right" style="margin-left: 10px;margin-top: 10px;"
+                        ng-click="additionalInfo()">Aditional Info <span class="label label-danger">
+                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                </span></button>
             </div>
         </div>
     </nav><!--navbar-end>
@@ -76,10 +82,13 @@
                                          jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <div class="panel-footer">2</div>
                     </div>
+                    <!--<input type="text" onchange="alert('You cannot take more tasks');">​-->
+
                 </div><!--end od User1>
 
 <!--User1 use list1-->
@@ -121,6 +130,7 @@
                         <div class="panel-footer">3</div>
                     </div>
                 </div><!--end od user3-->
+
 
             </div>
         </div>
