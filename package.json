@@ -1,0 +1,14 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "CapgeminiApp",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yaszui",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.10.0"
+  }
+}

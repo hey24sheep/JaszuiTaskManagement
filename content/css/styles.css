@@ -1,0 +1,64 @@
+body{
+  background-image: url('../img/brick.jpg');
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+.thumbnail { height: 100px !important;
+    background:#a9c1e8;
+    border: 2px solid #a9c1e8;
+}
+.btn-droppable { width: 180px; height: 30px; padding-left: 4px; }
+.btn-draggable { width: 160px;
+}
+.userOutput{
+    text-align: center;
+    color: dimgrey;
+}
+.main-content{
+  min-width: 800px;
+  max-width: 1050px;
+  box-shadow: 0px 0px 20px 5px #888888;
+  background-color: white;
+  text-align: center;
+  margin-left: 14%;
+  margin-top: 7%;
+  margin-bottom: 5%;
+  background-color: rgba(0,0,0,0.5);
+    /*background-color: transparent;*/
+
+}
+.task-list{
+  margin-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  text-align: center;
+    background:#a9c1e8
+
+}
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+.panel-body {
+    background:#a9c1e8;}
+
+.panel-footer{
+    background:#a9c1e8;
+    font-size: 50px;
+    color:white;
+    border: 1px solid #a9c1e8;
+    text-align: end;
+}
+.panel-heading{
+    font-weight:bold;
+    font-size: 15px;
+}
+.user2{
+    margin-top: 50px;
+    margin-bottom: 10px
+}
+.user3{
+    margin-top: 75px;
+}
