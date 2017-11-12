@@ -1,4 +1,4 @@
-#To run
+# To run
 
 - Clone or download repo to Your hard disk
 - Open command prompt in directory of repo
