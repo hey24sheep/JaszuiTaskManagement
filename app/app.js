@@ -50,25 +50,26 @@ App.controller('oneCtrl', function($scope) {
 
 
     if(localStorage.getItem('mainList')){
-        // $scope.list5.push(JSON.parse(localStorage.getItem('mainList'‌​)));
-        $scope.list5.push(angular.fromJson(localStorage.getItem('mai‌​nList')));
+        //this will assign the array stored in ls to the list1 var
+        $scope.list5 = angular.fromJson(localStorage.getItem('mainList'));
         console.log(mainList);
     }
     if(localStorage.getItem('firstList')){
-        // $scope.list5.push(JSON.parse(localStorage.getItem('mainList'‌​)));
-        $scope.list1.push(angular.fromJson(localStorage.getItem('firstList')));
+        //this will assign the array stored in ls to the list1 var
+        $scope.list1 = angular.fromJson(localStorage.getItem('firstList'));
         console.log(firstList);
     }
     if(localStorage.getItem('secondList')){
-        // $scope.list5.push(JSON.parse(localStorage.getItem('mainList'‌​)));
-        $scope.list2.push(angular.fromJson(localStorage.getItem('secondList')));
+        //this will assign the array stored in ls to the list1 var
+        $scope.list2 = angular.fromJson(localStorage.getItem('secondList'));
         console.log(secondList);
     }
     if(localStorage.getItem('thirdList')){
-        // $scope.list5.push(JSON.parse(localStorage.getItem('mainList'‌​)));
-        $scope.list3.push(angular.fromJson(localStorage.getItem('thirdList')));
+        //this will assign the array stored in ls to the list1 var
+        $scope.list3 = angular.fromJson(localStorage.getItem('thirdList'));
         console.log(thirdList);
     }
+
 
 
     // Limit items to be dropped in list1
