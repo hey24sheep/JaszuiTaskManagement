@@ -1,5 +1,5 @@
 var App = angular.module('drag-and-drop', ['ngDragDrop']);
-
+// localStorage.clear();
 App.controller('oneCtrl', function($scope) {
 
     $scope.list1 = [];
@@ -32,17 +32,10 @@ App.controller('oneCtrl', function($scope) {
     console.log(mainList);
 
     $scope.doSomething = function () {
-
-        localStorage.setItem('mainList', JSON.stringify(mainList));
-        localStorage.setItem('firstList', JSON.stringify(firstList));
-        localStorage.setItem('secondList', JSON.stringify(secondList));
-        localStorage.setItem('thirdList', JSON.stringify(thirdList));
-        console.log(mainList);
-        console.log(firstList);
-        console.log(secondList);
-        console.log(thirdList);
-
-    };
+        localStorage.setItem('mainList', angular.toJson(mainList));
+        localStorage.setItem('firstList', angular.toJson(firstList));
+        localStorage.setItem('secondList', angular.toJson(secondList));
+        localStorage.setItem('thirdList', angular.toJson(thirdList));}
     $scope.additionalInfo = function () {
         alert("User can have only one task");
         alert("You can keep data in local storage but after refresh\n $$hashKey " +
@@ -51,19 +44,23 @@ App.controller('oneCtrl', function($scope) {
 
 
     if(localStorage.getItem('mainList')){
-        $scope.list5.push(JSON.parse(localStorage.getItem('mainList')));
+        // $scope.list5.push(JSON.parse(localStorage.getItem('mainList')));
+        $scope.list1.push(localStorage.getItem('mainList'));
         console.log(mainList);
     }
     if(localStorage.getItem('firstList')){
-        $scope.list1.push(JSON.parse(localStorage.getItem('firstList')));
+        // $scope.list1.push(JSON.parse(localStorage.getItem('firstList')));
+        $scope.list1.push(localStorage.getItem('firstList'));
         console.log(firstList);
     }
     if(localStorage.getItem('secondList')){
-        $scope.list2.push(JSON.parse(localStorage.getItem('secondList')));
+        // $scope.list2.push(JSON.parse(localStorage.getItem('secondList')));
+        $scope.list2.push(localStorage.getItem('secondList'));
         console.log(secondList);
     }
     if(localStorage.getItem('thirdList')){
-        $scope.list3.push(JSON.parse(localStorage.getItem('thirdList')));
+        // $scope.list3.push(JSON.parse(localStorage.getItem('thirdList')));
+        $scope.list3.push(localStorage.getItem('thirdList'));
         console.log(thirdList);
     }
 
@@ -85,7 +82,6 @@ App.controller('oneCtrl', function($scope) {
 
                 return true;
             }
-
         }
 
     };
@@ -98,7 +94,6 @@ App.controller('oneCtrl', function($scope) {
             }
         }
     };
-
     $scope.clearStorage = function () {
         localStorage.clear();
         alert("Hit F5 after clear storage button");
